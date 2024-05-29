@@ -21,17 +21,17 @@
 
 ## items table
 
-| Column        | Type       | Options                        |
-|---------------|------------|--------------------------------|
-| title         | string     | null: false                    |
-| review        | text       | null: false                    |
-| price         | integer    | null: false                    |
-| category      | string     | null: false                    |
-| condition     | string     | null: false                    |
-| shipping      | string     | null: false                    |
-| region        | string     | null: false                    |
-| shipping_date | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+|------------------|------------|--------------------------------|
+| title            | string     | null: false                    |
+| review           | text       | null: false                    |
+| price            | integer    | null: false                    |
+| category_id      | integer    | null: false                    |
+| condition_id     | integer    | null: false                    |
+| shipping_id      | integer    | null: false                    |
+| region_id        | integer    | null: false                    |
+| shipping_date_id | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -67,14 +67,16 @@
 
 ## addresses table
 
-| Column          | Type             | Options                   |
-|-----------------|------------------|---------------------------|
-| post_code       | integer          | null: false               |
-| state           | string           | null: false, unique: true |
-| city            | string           | null: false               |
-| block_number    | string           | null: false               |
-| building_name   | string           |                           |
-| phone           | integer          | null: false               |
+| Column          | Type             | Options                        |
+|-----------------|------------------|--------------------------------|
+| post_code       | string           | null: false                    |
+| state_id        | integer          | null: false                    |
+| city            | string           | null: false                    |
+| block_number    | string           | null: false                    |
+| building_name   | string           |                                |
+| phone           | string           | null: false                    |
+| order           | references       | null: false, foreign_key: true |
+
 
 ### Association
 
