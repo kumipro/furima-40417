@@ -70,7 +70,7 @@
 | Column          | Type             | Options                        |
 |-----------------|------------------|--------------------------------|
 | post_code       | string           | null: false                    |
-| state_id        | integer          | null: false                    |
+| region_id       | integer          | null: false                    |
 | city            | string           | null: false                    |
 | block_number    | string           | null: false                    |
 | building_name   | string           |                                |
