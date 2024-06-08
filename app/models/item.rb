@@ -5,4 +5,7 @@ class Item < ApplicationRecord
   belongs_to :shipping
   belongs_to :region
   belongs_to :shipping_date
+  has_one_attached :image
+
+
 end
