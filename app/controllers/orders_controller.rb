@@ -24,7 +24,7 @@ end
 private
 
 def order_params
-  params.require(:order_address).permit(:order_id, :post_code, :region_id, :city, :block_number, :building_name, :phone).merge(user_id: current_user.id)
+  params.require(:order_address).permit(:post_code, :region_id, :city, :block_number, :building_name, :phone).merge(user_id: current_user.id, item_id: params[:item_id])
 end
 
 end
