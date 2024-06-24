@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :items
+  has_many :orders
  
   with_options presence: true do
     validates :last_name, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "is invalid. Input full-width characters."}
