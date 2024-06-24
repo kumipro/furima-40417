@@ -1,4 +1,4 @@
-const pay = () => {
+const price = () => {
 
 const priceInput = document.getElementById("item-price");
  priceInput.addEventListener("input", () => {
@@ -12,4 +12,4 @@ const addTaxDom = document.getElementById("add-tax-price");
 })
 };
 
-window.addEventListener("turbo:load", pay);
+window.addEventListener("turbo:load", price);
