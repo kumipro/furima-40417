@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
   end
  
   def edit
-   @item.order
-      redirect_to root_path
+    redirect_to root_path if @item.order
   end
 
   def update
