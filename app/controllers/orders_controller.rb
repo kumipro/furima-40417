@@ -6,18 +6,19 @@ class OrdersController < ApplicationController
 def index
   gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
   @order_address = OrderAddress.new
+  redirect_to root_path unless current_user && @item.user.id && @item.order.nil?
 end
 
 def create
   @order_address = OrderAddress.new(order_params)
-  if @order_address.valid?
-    pay_item
-    @order_address.save
-    redirect_to root_path
-  else
+   if @order_address.valid?
+     pay_item
+     @order_address.save
+     redirect_to root_path
+   else
     render :index, status: :unprocessable_entity
-  end
-end
+   end 
+ end
 
 def set_item
   @item = Item.find(params[:item_id])

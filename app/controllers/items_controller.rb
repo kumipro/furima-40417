@@ -31,9 +31,6 @@ class ItemsController < ApplicationController
      else
       render :index, status: :unprocessable_entity
      end
-
-
-
   end
 
   def update
