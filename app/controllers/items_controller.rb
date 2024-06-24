@@ -26,6 +26,14 @@ class ItemsController < ApplicationController
   end
  
   def edit
+    if @item.order
+      redirect_to root_path
+     else
+      render :index, status: :unprocessable_entity
+     end
+
+
+
   end
 
   def update
