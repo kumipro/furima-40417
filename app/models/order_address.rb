@@ -10,6 +10,7 @@ class OrderAddress
   validates :block_number
   validates :phone, format: {with: /\A[0-9]{10,11}+\z/, message: "is invalid"}
   validates :user_id
+  validates :item_id
   validates :token
   end
 

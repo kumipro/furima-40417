@@ -1,12 +1,13 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
 
 
 def index
   gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
   @order_address = OrderAddress.new
-  redirect_to root_path unless current_user && @item.user.id && @item.order.nil?
+
+  redirect_to root_path if current_user == @item.user || @item.order
 end
 
 def create
@@ -27,7 +28,7 @@ end
 private
 
 def order_params
-  params.require(:order_address).permit(:price, :post_code, :region_id, :city, :block_number, :building_name, :phone).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  params.require(:order_address).permit(:post_code, :region_id, :city, :block_number, :building_name, :phone).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
 end
 
 def pay_item
