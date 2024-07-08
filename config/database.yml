@@ -51,9 +51,9 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
+#FURIMA_40417_DATABASE_PASSWORD
 production:
   <<: *default
   database: furima_40417_production
   username: furima_40417
-  password: <%= ENV["FURIMA_40417_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DATABASE_URL"] %>
